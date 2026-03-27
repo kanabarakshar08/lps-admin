@@ -1,18 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Bell, CheckCircle2, AlertCircle, Info, X, Search, Filter, Trash2 } from 'lucide-react';
-import { cn } from '../lib/utils';
+import { Bell, CheckCircle2, AlertCircle, Info, Search, Filter, Trash2 } from 'lucide-react';
+import { cn } from '../lib/utils.js';
 
-interface Notification {
-  id: string;
-  title: string;
-  message: string;
-  type: 'success' | 'warning' | 'info' | 'error';
-  time: string;
-  read: boolean;
-}
-
-const initialNotifications: Notification[] = [
+const initialNotifications = [
   {
     id: '1',
     title: 'New Teacher Application',
@@ -55,9 +46,9 @@ const initialNotifications: Notification[] = [
   },
 ];
 
-export const NotificationModule: React.FC = () => {
-  const [notifications, setNotifications] = useState<Notification[]>(initialNotifications);
-  const [filter, setFilter] = useState<'all' | 'unread'>('all');
+export const NotificationModule = () => {
+  const [notifications, setNotifications] = useState(initialNotifications);
+  const [filter, setFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
 
   const filteredNotifications = notifications
@@ -67,11 +58,11 @@ export const NotificationModule: React.FC = () => {
       n.message.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
-  const markAsRead = (id: string) => {
+  const markAsRead = (id) => {
     setNotifications(prev => prev.map(n => n.id === id ? { ...n, read: true } : n));
   };
 
-  const deleteNotification = (id: string) => {
+  const deleteNotification = (id) => {
     setNotifications(prev => prev.filter(n => n.id !== id));
   };
 
@@ -83,12 +74,13 @@ export const NotificationModule: React.FC = () => {
     setNotifications([]);
   };
 
-  const getTypeIcon = (type: Notification['type']) => {
+  const getTypeIcon = (type) => {
     switch (type) {
       case 'success': return <CheckCircle2 className="text-emerald-500" size={20} />;
       case 'warning': return <AlertCircle className="text-amber-500" size={20} />;
       case 'error': return <AlertCircle className="text-red-500" size={20} />;
       case 'info': return <Info className="text-blue-500" size={20} />;
+      default: return null;
     }
   };
 

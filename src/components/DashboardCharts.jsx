@@ -1,7 +1,6 @@
-import React from 'react';
 import { 
-  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, 
-  AreaChart, Area, PieChart, Pie, Cell, BarChart, Bar, Legend
+  XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, 
+  AreaChart, Area, PieChart, Pie, Cell, Legend
 } from 'recharts';
 
 const lineData = [
@@ -23,7 +22,7 @@ const pieData = [
 
 const COLORS = ['#2563eb', '#8b5cf6', '#10b981', '#f59e0b'];
 
-export const DashboardCharts: React.FC = () => {
+export const DashboardCharts = () => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
       <div className="glass-card p-6">

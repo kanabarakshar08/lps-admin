@@ -1,16 +1,8 @@
-import React from 'react';
 import { motion } from 'motion/react';
-import { Edit3, Save, Trash2, Plus, Image as ImageIcon, FileText, CheckCircle, Clock, AlertCircle, Mail, Phone, MapPin } from 'lucide-react';
-import { cn } from '../lib/utils';
+import { Edit3, Trash2, Plus, FileText, CheckCircle } from 'lucide-react';
+import { cn } from '../lib/utils.js';
 
-interface SectionHeaderProps {
-  title: string;
-  description: string;
-  onAdd?: () => void;
-  addLabel?: string;
-}
-
-const SectionHeader: React.FC<SectionHeaderProps> = ({ title, description, onAdd, addLabel = "Add New" }) => (
+const SectionHeader = ({ title, description, onAdd, addLabel = "Add New" }) => (
   <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
     <div>
       <h1 className="text-3xl font-bold text-slate-800 tracking-tight">{title}</h1>
@@ -28,7 +20,7 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({ title, description, onAdd
   </div>
 );
 
-export const AboutAdmin: React.FC = () => (
+export const AboutAdmin = () => (
   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
     <SectionHeader title="About LPS Group" description="Manage school history, vision, and mission statements." />
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -59,7 +51,7 @@ export const AboutAdmin: React.FC = () => (
   </motion.div>
 );
 
-export const AcademicsAdmin: React.FC = () => (
+export const AcademicsAdmin = () => (
   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
     <SectionHeader title="Academics" description="Manage curriculum, departments, and academic calendars." onAdd={() => {}} addLabel="Add Department" />
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -96,7 +88,7 @@ export const AcademicsAdmin: React.FC = () => (
   </motion.div>
 );
 
-export const AdmissionAdmin: React.FC = () => (
+export const AdmissionAdmin = () => (
   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
     <SectionHeader title="Admissions" description="Review and manage student admission applications." />
     <div className="glass-card overflow-hidden">
@@ -140,7 +132,7 @@ export const AdmissionAdmin: React.FC = () => (
   </motion.div>
 );
 
-export const FeesAdmin: React.FC = () => (
+export const FeesAdmin = () => (
   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
     <SectionHeader title="School Fees" description="Track payments, pending dues, and generate invoices." />
     <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
@@ -186,7 +178,7 @@ export const FeesAdmin: React.FC = () => (
   </motion.div>
 );
 
-export const GalleryAdmin: React.FC = () => (
+export const GalleryAdmin = () => (
   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
     <SectionHeader title="Gallery" description="Manage school photos and event albums." onAdd={() => {}} addLabel="Upload Photos" />
     <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
@@ -203,7 +195,7 @@ export const GalleryAdmin: React.FC = () => (
   </motion.div>
 );
 
-export const ContactAdmin: React.FC = () => (
+export const ContactAdmin = () => (
   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
     <SectionHeader title="Contact Inquiries" description="Manage messages from parents and students." />
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -251,7 +243,7 @@ export const ContactAdmin: React.FC = () => (
   </motion.div>
 );
 
-export const ResourcesAdmin: React.FC = () => (
+export const ResourcesAdmin = () => (
   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
     <SectionHeader title="School Resources" description="Manage descriptions and images for school facilities." onAdd={() => {}} addLabel="Add Facility" />
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -269,7 +261,7 @@ export const ResourcesAdmin: React.FC = () => (
   </motion.div>
 );
 
-export const AchievementAdmin: React.FC = () => (
+export const AchievementAdmin = () => (
   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
     <SectionHeader title="Achievements & Awards" description="Manage school-wide recognitions and student awards." onAdd={() => {}} addLabel="Add Award" />
     <div className="glass-card overflow-hidden">
@@ -307,7 +299,7 @@ export const AchievementAdmin: React.FC = () => (
   </motion.div>
 );
 
-export const KnowledgeAdmin: React.FC = () => (
+export const KnowledgeAdmin = () => (
   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
     <SectionHeader title="Knowledge Hub" description="Manage educational articles and blog posts." onAdd={() => {}} addLabel="Add Article" />
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

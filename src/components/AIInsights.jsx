@@ -1,8 +1,7 @@
-import React from 'react';
 import { Sparkles, TrendingUp, AlertCircle } from 'lucide-react';
 import { motion } from 'motion/react';
 
-export const AIInsights: React.FC = () => {
+export const AIInsights = () => {
   return (
     <div className="mt-8">
       <div className="flex items-center gap-2 mb-4">
@@ -49,7 +48,7 @@ export const AIInsights: React.FC = () => {
             <span className="text-xs font-semibold uppercase tracking-wider">Revenue Insight</span>
           </div>
           <h4 className="text-lg font-bold text-slate-800 mb-1">Premium Tier</h4>
-          <p className="text-sm text-slate-500 leading-relaxed">Users are 40% more likely to book teachers with "Premium" badges. Revenue could grow by $2.4k.</p>
+          <p className="text-sm text-slate-500 leading-relaxed">Users are 40% more likely to book teachers with &quot;Premium&quot; badges. Revenue could grow by $2.4k.</p>
         </motion.div>
       </div>
     </div>

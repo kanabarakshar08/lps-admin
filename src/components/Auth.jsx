@@ -1,23 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Mail, Lock, ArrowRight, ShieldCheck, KeyRound, Eye, EyeOff, GraduationCap, ArrowLeft } from 'lucide-react';
-import { cn } from '../lib/utils';
 
-type AuthView = 'login' | 'forgot-password' | 'otp' | 'reset-password';
-
-interface AuthProps {
-  onLogin: () => void;
-}
-
-export const Auth: React.FC<AuthProps> = ({ onLogin }) => {
-  const [view, setView] = useState<AuthView>('login');
+export const Auth = ({ onLogin }) => {
+  const [view, setView] = useState('login');
   const [showPassword, setShowPassword] = useState(false);
   const [otp, setOtp] = useState(['', '', '', '', '', '']);
   const [isLoading, setIsLoading] = useState(false);
   const [email, setEmail] = useState('');
-  const [otpPurpose, setOtpPurpose] = useState<'login' | 'forgot'>('login');
+  const [otpPurpose, setOtpPurpose] = useState('login');
 
-  const handleLoginSubmit = (e: React.FormEvent) => {
+  const handleLoginSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
     // Simulate API call
@@ -28,7 +21,7 @@ export const Auth: React.FC<AuthProps> = ({ onLogin }) => {
     }, 1000);
   };
 
-  const handleForgotSubmit = (e: React.FormEvent) => {
+  const handleForgotSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
     setTimeout(() => {
@@ -38,7 +31,7 @@ export const Auth: React.FC<AuthProps> = ({ onLogin }) => {
     }, 1000);
   };
 
-  const handleOtpSubmit = (e: React.FormEvent) => {
+  const handleOtpSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
     setTimeout(() => {
@@ -51,7 +44,7 @@ export const Auth: React.FC<AuthProps> = ({ onLogin }) => {
     }, 1000);
   };
 
-  const handleResetSubmit = (e: React.FormEvent) => {
+  const handleResetSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
     setTimeout(() => {
@@ -60,7 +53,7 @@ export const Auth: React.FC<AuthProps> = ({ onLogin }) => {
     }, 1000);
   };
 
-  const handleOtpChange = (index: number, value: string) => {
+  const handleOtpChange = (index, value) => {
     if (value.length > 1) value = value.slice(-1);
     const newOtp = [...otp];
     newOtp[index] = value;
@@ -237,7 +230,7 @@ export const Auth: React.FC<AuthProps> = ({ onLogin }) => {
                     <ShieldCheck size={24} />
                   </div>
                   <h2 className="text-2xl font-bold text-slate-800">Verify Identity</h2>
-                  <p className="text-slate-500 text-sm mt-1">We've sent a 6-digit code to <br/><span className="font-bold text-slate-700">{email || 'your email'}</span></p>
+                  <p className="text-slate-500 text-sm mt-1">We&apos;ve sent a 6-digit code to <br/><span className="font-bold text-slate-700">{email || 'your email'}</span></p>
                 </div>
 
                 <form onSubmit={handleOtpSubmit} className="space-y-6">
@@ -257,7 +250,7 @@ export const Auth: React.FC<AuthProps> = ({ onLogin }) => {
 
                   <div className="text-center">
                     <p className="text-sm text-slate-500">
-                      Didn't receive the code? 
+                      Didn&apos;t receive the code? 
                       <button type="button" className="ml-1 font-bold text-blue-600 hover:underline">Resend</button>
                     </p>
                   </div>

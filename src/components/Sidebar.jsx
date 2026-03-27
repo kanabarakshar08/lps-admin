@@ -1,11 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { 
   LayoutDashboard, 
   Users, 
-  UserPlus, 
-  Calendar, 
   CreditCard, 
-  Star, 
   Settings, 
   ChevronLeft, 
   ChevronRight,
@@ -19,17 +16,7 @@ import {
   Bell,
   ChevronDown
 } from 'lucide-react';
-import { cn } from '../lib/utils';
-
-interface SidebarProps {
-  activeTab: string;
-  setActiveTab: (tab: string) => void;
-  isMobileOpen: boolean;
-  setIsMobileOpen: (open: boolean) => void;
-  onLogout: () => void;
-  isCollapsed: boolean;
-  setIsCollapsed: (collapsed: boolean) => void;
-}
+import { cn } from '../lib/utils.js';
 
 const menuItems = [
   { id: 'dashboard', label: 'Home', icon: LayoutDashboard },
@@ -55,7 +42,7 @@ const menuItems = [
   { id: 'settings', label: 'Settings', icon: Settings },
 ];
 
-export const Sidebar: React.FC<SidebarProps> = ({ 
+export const Sidebar = ({ 
   activeTab, 
   setActiveTab, 
   isMobileOpen, 
@@ -64,15 +51,15 @@ export const Sidebar: React.FC<SidebarProps> = ({
   isCollapsed,
   setIsCollapsed
 }) => {
-  const [expandedMenus, setExpandedMenus] = useState<string[]>(['school']);
+  const [expandedMenus, setExpandedMenus] = useState(['school']);
 
-  const toggleExpand = (id: string) => {
+  const toggleExpand = (id) => {
     setExpandedMenus(prev => 
       prev.includes(id) ? prev.filter(i => i !== id) : [...prev, id]
     );
   };
 
-  const handleTabClick = (id: string) => {
+  const handleTabClick = (id) => {
     setActiveTab(id);
     if (window.innerWidth < 1024) {
       setIsMobileOpen(false);

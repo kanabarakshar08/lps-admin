@@ -1,12 +1,6 @@
-import React from 'react';
-import { Search, Bell, Moon, Sun, User, Menu, X } from 'lucide-react';
+import { Search, Bell, Moon, Menu, X } from 'lucide-react';
 
-interface NavbarProps {
-  isMobileMenuOpen: boolean;
-  setIsMobileMenuOpen: (open: boolean) => void;
-}
-
-export const Navbar: React.FC<NavbarProps> = ({ isMobileMenuOpen, setIsMobileMenuOpen }) => {
+export const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen }) => {
   return (
     <header className="h-20 bg-white/80 backdrop-blur-md border-b border-slate-200 sticky top-0 z-40 px-4 sm:px-8 flex items-center justify-between">
       <div className="flex items-center gap-4 flex-1">

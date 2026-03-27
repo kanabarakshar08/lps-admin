@@ -1,6 +1,5 @@
-import React from 'react';
 import { MoreHorizontal, Check, X, Eye } from 'lucide-react';
-import { cn } from '../lib/utils';
+import { cn } from '../lib/utils.js';
 
 const teachers = [
   { id: 1, name: 'Dr. Sarah Wilson', subject: 'Mathematics', exp: '12 Years', status: 'Active', rating: 4.9, image: 'https://picsum.photos/seed/sarah/100/100' },
@@ -10,7 +9,7 @@ const teachers = [
   { id: 5, name: 'Aisha Khan', subject: 'Biology', exp: '7 Years', status: 'Active', rating: 4.9, image: 'https://picsum.photos/seed/aisha/100/100' },
 ];
 
-export const TeacherTable: React.FC = () => {
+export const TeacherTable = () => {
   return (
     <div className="glass-card mt-8 overflow-hidden">
       <div className="p-6 border-b border-slate-100 flex items-center justify-between">

@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { Sidebar } from './components/Sidebar';
-import { Navbar } from './components/Navbar';
-import { StatCard } from './components/StatCard';
-import { DashboardCharts } from './components/DashboardCharts';
-import { TeacherTable } from './components/TeacherTable';
-import { AIInsights } from './components/AIInsights';
-import { Auth } from './components/Auth';
-import { NotificationModule } from './components/NotificationModule';
+import { Sidebar } from './components/Sidebar.jsx';
+import { Navbar } from './components/Navbar.jsx';
+import { StatCard } from './components/StatCard.jsx';
+import { DashboardCharts } from './components/DashboardCharts.jsx';
+import { TeacherTable } from './components/TeacherTable.jsx';
+import { AIInsights } from './components/AIInsights.jsx';
+import { Auth } from './components/Auth.jsx';
+import { NotificationModule } from './components/NotificationModule.jsx';
 import { 
   AboutAdmin, 
   AcademicsAdmin, 
@@ -17,10 +17,10 @@ import {
   FeesAdmin, 
   GalleryAdmin, 
   ContactAdmin 
-} from './components/PageContent';
-import { Users, Calendar, UserPlus, DollarSign, Settings, UserCircle, Bell, Camera, Save, School, Info, Image, Mail, KeyRound, Lock } from 'lucide-react';
+} from './components/PageContent.jsx';
+import { Users, Calendar, UserPlus, DollarSign, Settings, Save, Camera, KeyRound, Lock } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { cn } from './lib/utils';
+import { cn } from './lib/utils.js';
 
 const ProfileEdit = () => {
   const [formData, setFormData] = useState({
